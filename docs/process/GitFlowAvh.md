@@ -1,4 +1,4 @@
-# Git Flow AVH 
+# Git Flow & Git Flow AVH 
 
 ## Qu'est-ce que Git Flow ?
 
@@ -83,29 +83,20 @@ Suivez les instructions pour définir les noms des branches principales et de su
 ## Commandes principales
 
 Git flow et Git flow Avh apportent à git des nouvelles commandes pour automatiser les process et n'avoir qu'une seule commande a chaque étape
+### Une fonctionnalité :
 
-- **Démarrer une fonctionnalité :**
 ```sh
 git flow feature start nom-fonctionnalite
-```
-- **Finir une fonctionnalité :**
-```sh
 git flow feature finish nom-fonctionnalite
 ```
-- **Démarrer une release :**
+### Une release :
 ```sh
 git flow release start 1.2.0
-```
-- **Finir une release :**
-```sh
 git flow release finish 1.2.0
 ```
-- **Démarrer un hotfix :**
+### un hotfix :
 ```sh
 git flow hotfix start correction-critique
-```
-- **Finir un hotfix :**
-```sh
 git flow hotfix finish correction-critique
 ```
 
