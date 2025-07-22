@@ -82,7 +82,7 @@ Suivez les instructions pour définir les noms des branches principales et de su
 
 ## Commandes principales
 
-Git flow et Git flow Avh apporte a git des nouvelles commandes pour automatiser les process et n'avoir qu'une seule commande a chaque étape
+Git flow et Git flow Avh apportent à git des nouvelles commandes pour automatiser les process et n'avoir qu'une seule commande a chaque étape
 
 - **Démarrer une fonctionnalité :**
 ```sh
