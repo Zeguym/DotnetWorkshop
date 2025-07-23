@@ -1,4 +1,4 @@
-theme: jekyll-theme-hacker
+remote_theme: pages-themes/midnight@v0.2.0
 title: Dotnet Workshop
 description: Code, outils et tips pour les projets Dotnet
-
+show_downloads: false
