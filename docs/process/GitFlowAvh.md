@@ -48,7 +48,7 @@ Git Flow est une méthodologie de gestion de branches pour Git, conçue pour fac
      `git checkout develop`  
      `git merge hotfix/bug-critique`
 
-## Graphe d'éxecution
+## Graphe d’exécution
 ```mermaid
 ---
 config:
@@ -104,8 +104,9 @@ config:
          checkout develop
          merge release/1.1.0
          merge feature/C
+        commit id:"             "
          checkout main
-         commit id:"         "
+         commit id:"            "
 ```
 
 
@@ -118,7 +119,7 @@ Git Flow AVH est une version améliorée de l’outil git-flow original, compati
 -	git flow AVH : Fork maintenu par Peter van der Does (AVH), avec de nombreuses améliorations et corrections.
 2. **Compatibilité et maintenance**
 -	git flow : Plus maintenu activement, peut poser des problèmes avec les versions récentes de Git.
--	git flow AVH : Maintenu, compatible avec les dernières versions de Git, disponible sur la plupart des gestionnaires de paquets (brew, apt, choco…).
+-	git flow AVH : Maintenu, compatible avec les dernières versions de Git, disponible sur la plupart des gestionnaires de paquets.
 3. Fonctionnalités supplémentaires
 -	**git flow AVH ajoute** :
 -	Branches bugfix/ : gestion native des corrections de bugs sur develop/support.
@@ -129,7 +130,7 @@ Git Flow AVH est une version améliorée de l’outil git-flow original, compati
   
 ## Installation
 
-Git flow n'etant plus maintenu c'est c'est git flow avh qui se trouve par défaut dans la plus part des installation récente de git (c'est le cas de git pour windows)
+Git flow n’étant plus maintenu c'est c'est git flow avh qui se trouve par défaut dans la plus part des installation récente de git (c'est le cas de git pour windows)
 
 # Outillage
 ## Initialisation
@@ -140,7 +141,7 @@ git flow init
 ```
 Suivez les instructions pour définir les noms des branches principales et de support.
 
-## Commandes principales
+## Commandes principales git flow
 
 Git flow et Git flow Avh apportent à git des nouvelles commandes pour automatiser les process et n'avoir qu'une seule commande a chaque étape
 ### Une fonctionnalité :
@@ -149,6 +150,7 @@ Git flow et Git flow Avh apportent à git des nouvelles commandes pour automatis
 git flow feature start nom-fonctionnalite
 git flow feature finish nom-fonctionnalite
 ```
+
 ### Une release :
 ```sh
 git flow release start 1.2.0
@@ -159,7 +161,32 @@ git flow release finish 1.2.0
 git flow hotfix start correction-critique
 git flow hotfix finish correction-critique
 ```
-## Graphe d'éxecution
+
+## Commandes principales git flow avh 
+
+### une correction sur develop :
+```sh
+git flow bugfix start correction-sur-develop
+git flow bugfix finish correction-sur-develop
+```
+### une branche de support pour une vieille version a partir de son tag :
+```sh
+git flow support start support/1.0.0 tags:/1.0.1
+```
+
+### un hotfix depuis une branche de support :
+```sh
+git flow hotfix start correction-critique support/1.0.0
+git flow hotfix finish correction-critique
+```
+### Une fonctionnalité depuis une branche de support :
+```sh
+git flow feature start nom-fonctionnalite support/1.0.0
+git flow feature finish nom-fonctionnalite
+```
+
+
+## Graphe d’exécution
 ```mermaid
 ---
 config:
