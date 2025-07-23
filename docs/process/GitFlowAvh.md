@@ -48,6 +48,7 @@ Git Flow est une méthodologie de gestion de branches pour Git, conçue pour fac
      `git checkout develop`  
      `git merge hotfix/bug-critique`
 
+## Graphe d'éxecution
 ```mermaid
 ---
 config:
@@ -103,6 +104,8 @@ config:
          checkout develop
          merge release/1.1.0
          merge feature/C
+         checkout main
+         commit id:"         "
 ```
 
 
@@ -156,7 +159,79 @@ git flow release finish 1.2.0
 git flow hotfix start correction-critique
 git flow hotfix finish correction-critique
 ```
+## Graphe d'éxecution
+```mermaid
+---
+config:
+  gitGraph:
+    showCommitLabel : false
+    mainBranchOrder: 3
+---
+      gitGraph
+         commit id:"1.0.0" tag:"1.0.0"
 
+         branch develop order: 5
+         checkout develop
+         commit id:"  "
+         branch feature/A order: 7
+         commit id:"dev A1"
+         commit id:"dev A2"
+         
+         checkout main
+         commit id:"        "
+         branch hotfix/1.0.1 order: 3
+        
+         commit id:"hotfix 1"
+
+         checkout main
+         merge hotfix/1.0.1 tag:"1.0.1"
+         branch support/1.0.0 order: 1
+     
+         checkout develop
+         merge hotfix/1.0.1 
+ 
+       
+         checkout develop
+         merge feature/A
+                  
+         checkout develop
+         commit id:"    "
+         branch bugfix/fix_feature_A order:5
+         commit id:"fix validation 1"
+         commit id:"fix validation 2"
+         checkout develop
+         merge bugfix/fix_feature_A 
+         commit id:"   "
+ 
+         branch release/1.1.0 order: 4
+         commit id:"fix prerpod 1"
+         commit id:"fix prerpod 2"
+
+
+         checkout main
+         merge release/1.1.0 tag: "1.1.0"
+
+         checkout develop
+         merge release/1.1.0
+    
+
+         checkout support/1.0.0
+         commit id:" "
+         branch hotfix/1.0.2
+         commit id:"fix support 1"
+         checkout support/1.0.0
+         merge hotfix/1.0.2  tag:"1.0.2"
+         commit id:"     "
+         branch feature/legacyA
+         commit id:"fix support 2" 
+         commit id:"fix support 3" 
+         checkout support/1.0.0
+         merge feature/legacyA tag:"1.0.3"
+         checkout develop
+         commit id:"       "
+         checkout main
+         commit id:"         "
+```
 
 ## Bonnes pratiques
 
