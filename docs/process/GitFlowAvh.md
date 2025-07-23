@@ -48,6 +48,63 @@ Git Flow est une méthodologie de gestion de branches pour Git, conçue pour fac
      `git checkout develop`  
      `git merge hotfix/bug-critique`
 
+```mermaid
+---
+config:
+  gitGraph:
+    mainBranchOrder: 2
+---
+      gitGraph
+         commit id:"1.0.0" tag:"1.0.0"
+         commit id:"   "
+         branch develop order: 3
+         checkout develop
+         commit id:"  "
+         branch feature/A order: 4
+         commit id:"dev A1"
+         commit id:"dev A2"
+         
+         branch hotfix/1.0.1 order: 1
+         commit id:"hotfix 1"
+
+         checkout main
+         merge hotfix/1.0.1  tag:"1.0.1"
+         
+         checkout develop
+         merge hotfix/1.0.1 
+        commit id:"    "
+         checkout develop
+         branch feature/B order: 5
+         commit id:"dev B1"
+         commit id:"dev B2"
+         commit id:"dev B3"
+         
+         checkout develop
+         merge feature/A
+                  
+         checkout develop
+         commit id:" "
+         branch feature/C order: 6
+         commit id:"dev C1"
+         commit id:"dev C2"
+         
+         checkout develop
+         merge feature/B
+        
+         branch release/1.1.0 order: 0
+         commit id:"fix prerpod 1"
+         commit id:"fix prerpod 2"
+         
+
+
+         checkout main
+         merge release/1.1.0 tag: "1.1.0"
+
+         checkout develop
+         merge release/1.1.0
+         merge feature/C
+```
+
 
 ## Qu'est-ce que Git Flow AVH ?
 
