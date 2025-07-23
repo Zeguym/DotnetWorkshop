@@ -1,3 +1,4 @@
+remote_theme: pages-themes/hacker@v0.2.0
 title: Dotnet Workshop
 description: Code, outils et tips pour les projets Dotnet
-theme: jekyll-theme-hacker
+
